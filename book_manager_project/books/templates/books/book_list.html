@@ -1,0 +1,21 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Lista De Livros - BIBLIOTECA</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Livros</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                {% if book.cover_image %}
+                <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" style="width: 100px; height: auto;">
+                {% endif %}
+                {{ book.title }} escrito por {{ book.author }} em {{ book.publication_date }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
